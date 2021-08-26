@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import './style.css';
 import task from './task';
+import handleStorage from './handle-storage';
 
 const toDoTasks = [
   { description: 'wash the dishes', completed: false, index: 0 },

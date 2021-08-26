@@ -1,37 +1,40 @@
 export default class HandleStorage {
-  setTask(task) {
-    let to_do_list = getToDoList();
-    let index = getIndex()
-    task.index = index++;
-    to_do_list.push(task)
-    localStorage.setItem('to_do_list', JSON.stringify(to_do_list));
+  static setTask(task) {
+    let to_do_list = HandleStorage.getToDoList();
+    let index = HandleStorage.getIndex();
+    console.log("Hello", task);
+    task.index = index;
+    to_do_list.push(task);
+    localStorage.setItem("to_do_list", JSON.stringify(to_do_list));
   }
 
-  getToDoList() {
+  static getToDoList() {
     let to_do_list;
 
-    if (!localStorage.getItem('to_do_list')) {
+    if (!localStorage.getItem("to_do_list")) {
       to_do_list = [];
     } else {
-        to_do_list = JSON.parse(localStorage.getItem('to_do_list'));
+      to_do_list = JSON.parse(localStorage.getItem("to_do_list"));
     }
 
     return to_do_list;
   }
 
-  getIndex() {
+  static getIndex() {
     let index;
 
-    if (!localStorage.getItem('index')) {
-        index = 0;
+    if (!localStorage.getItem("index")) {
+      index = 0;
+      localStorage.setItem("index", JSON.stringify(index));
     } else {
-        index = JSON.parse(localStorage.getItem('index'));
+      index = JSON.parse(localStorage.getItem("index")) + 1;
+      localStorage.setItem("index", JSON.stringify(index));
     }
 
     return index;
   }
 
-  resetToDoList() {
-      localStorage.clear;
+  static resetToDoList() {
+    localStorage.clear;
   }
 }

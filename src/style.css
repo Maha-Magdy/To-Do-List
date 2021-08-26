@@ -60,6 +60,13 @@ header,
   color: #6a6969;
 }
 
+.to-do-list li input {
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+}
+
 .add-item-container input:focus-visible {
   outline: unset;
 }
@@ -85,13 +92,6 @@ header,
   padding: 20px 25px;
   border-bottom: 1px solid #d3d3d3;
   position: relative;
-}
-
-.to-do-list li input {
-  margin: 0 10px 0 0;
-  vertical-align: middle;
-  width: 15px;
-  height: 15px;
 }
 
 .to-do-list li button {
@@ -123,5 +123,5 @@ header,
 }
 
 .clear-btn:hover {
-  background-color: #eeeeee;
+  background-color: #eee;
 }

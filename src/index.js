@@ -1,10 +1,10 @@
-import lodash from "lodash";
-import "./style.css";
+/* eslint-disable array-callback-return */
+import './style.css';
 
-let toDoTasks = [
-  { description: "wash the dishes", completed: false, index: 0 },
+const toDoTasks = [
+  { description: 'wash the dishes', completed: false, index: 0 },
   {
-    description: "complete list structure milestone",
+    description: 'complete list structure milestone',
     completed: false,
     index: 1,
   },
@@ -13,18 +13,18 @@ let toDoTasks = [
 function toDoList(list) {
   list.sort((a, b) => (a.index > b.index ? 1 : -1));
 
-  const listContainer = document.getElementById("to-do-list");
+  const listContainer = document.getElementById('to-do-list');
 
   list.map((task) => {
-    const li = document.createElement("li");
-    const description = document.createElement("p");
+    const li = document.createElement('li');
+    const description = document.createElement('p');
     const descriptionText = document.createTextNode(task.description);
     description.appendChild(descriptionText);
 
-    let checkbox = document.createElement("input");
-    checkbox.setAttribute("type", "checkbox");
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
 
-    const btn = document.createElement("button");
+    const btn = document.createElement('button');
 
     li.appendChild(checkbox);
     li.appendChild(description);
@@ -34,4 +34,4 @@ function toDoList(list) {
   });
 }
 
-window.addEventListener("load", toDoList(toDoTasks));
+window.addEventListener('load', toDoList(toDoTasks));

@@ -1,0 +1,127 @@
+body {
+  background-color: #fafafa;
+  font-family: sans-serif;
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  color: #6a6969;
+  font-weight: 500;
+}
+
+.basic-font-weight {
+  font-weight: 500;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 0 15px 0 rgb(154 161 171 / 50%);
+  width: 50%;
+}
+
+header,
+.add-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basic-button {
+  border: unset;
+  background: unset;
+  padding: unset;
+  cursor: pointer;
+}
+
+.basic-button:hover svg path {
+  fill: #6a6969 !important;
+}
+
+.basic-p {
+  padding: 20px 25px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.basic-border {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.add-item-container input {
+  border: unset;
+  font-size: larger;
+  font-style: italic;
+  color: #6a6969;
+}
+
+.to-do-list li input {
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+}
+
+.add-item-container input:focus-visible {
+  outline: unset;
+}
+
+::placeholder {
+  font-style: italic;
+  color: #b6b6b6;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-style: italic;
+  color: #b6b6b6;
+}
+
+.to-do-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.to-do-list li {
+  padding: 20px 25px;
+  border-bottom: 1px solid #d3d3d3;
+  position: relative;
+}
+
+.to-do-list li button {
+  position: absolute;
+  right: 25px;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: url("./dot.svg") no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.to-do-list li button:hover {
+  background: url("./dark-dot.svg") no-repeat;
+  background-size: contain;
+}
+
+.to-do-list li p {
+  margin: 0;
+  display: inline-block;
+}
+
+.clear-btn {
+  width: 100%;
+  background-color: #fafafa;
+  color: #b6b6b6;
+  font-size: larger;
+}
+
+.clear-btn:hover {
+  background-color: #eee;
+}

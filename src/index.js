@@ -1,5 +1,6 @@
 /* eslint-disable array-callback-return */
 import './style.css';
+import task from './task';
 
 const toDoTasks = [
   { description: 'wash the dishes', completed: false, index: 0 },

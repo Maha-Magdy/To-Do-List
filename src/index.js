@@ -51,3 +51,8 @@ function addNewTask() {
 const addToYourList = document.getElementById("add-to-your-list");
 
 addToYourList.addEventListener("click", addNewTask);
+newTask.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    addNewTask();
+  }
+});

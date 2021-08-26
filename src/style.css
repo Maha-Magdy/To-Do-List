@@ -58,6 +58,7 @@ header,
   font-size: larger;
   font-style: italic;
   color: #6a6969;
+  width: 75%;
 }
 
 .to-do-list li input {

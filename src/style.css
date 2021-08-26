@@ -1,12 +1,32 @@
 body {
   background-color: #fafafa;
   font-family: sans-serif;
-  position: relative;
-  min-width: 100vw;
-  min-height: 100vh;
   margin: 0;
   color: #6a6969;
   font-weight: 500;
+  padding: 50px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b6b6b6;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6a6969;
 }
 
 .basic-font-weight {
@@ -14,10 +34,8 @@ body {
 }
 
 main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  margin: 0 auto;
   background-color: white;
   box-shadow: 0 0 15px 0 rgb(154 161 171 / 50%);
   width: 50%;

@@ -2,19 +2,18 @@ export default class HandleStorage {
   static setTask(task) {
     let to_do_list = HandleStorage.getToDoList();
     let index = HandleStorage.getIndex();
-    console.log("Hello", task);
     task.index = index;
     to_do_list.push(task);
-    localStorage.setItem("to_do_list", JSON.stringify(to_do_list));
+    localStorage.setItem('to_do_list', JSON.stringify(to_do_list));
   }
 
   static getToDoList() {
     let to_do_list;
 
-    if (!localStorage.getItem("to_do_list")) {
+    if (!localStorage.getItem('to_do_list')) {
       to_do_list = [];
     } else {
-      to_do_list = JSON.parse(localStorage.getItem("to_do_list"));
+      to_do_list = JSON.parse(localStorage.getItem('to_do_list'));
     }
 
     return to_do_list;
@@ -35,6 +34,6 @@ export default class HandleStorage {
   }
 
   static resetToDoList() {
-    localStorage.clear;
+    localStorage.clear();
   }
 }

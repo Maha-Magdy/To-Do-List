@@ -3,19 +3,22 @@ import "./style.css";
 import Task from "./task";
 import handleStorage from "./handle-storage";
 
-const toDoTasks = [
-  { description: "Wash the dishes", completed: false, index: 0 },
-  {
-    description: "Complete list structure milestone",
-    completed: false,
-    index: 1,
-  },
-];
+// let toDoTasks = [
+//   { description: "Wash the dishes", completed: false, index: 0 },
+//   {
+//     description: "Complete list structure milestone",
+//     completed: false,
+//     index: 1,
+//   },
+// ];
+
+let toDoTasks = handleStorage.getToDoList();
 
 function toDoList(list) {
   list.sort((a, b) => (a.index > b.index ? 1 : -1));
 
   const listContainer = document.getElementById("to-do-list");
+  listContainer.innerHTML = "";
 
   list.map((task) => {
     const li = document.createElement("li");
@@ -38,6 +41,11 @@ function toDoList(list) {
 
 window.addEventListener("load", toDoList(toDoTasks));
 
+const resetButton = document.getElementById("reset-button");
+resetButton.addEventListener("click", function () {
+  handleStorage.resetToDoList();
+});
+
 const newTask = document.getElementById("new-task");
 
 function addNewTask() {
@@ -45,12 +53,16 @@ function addNewTask() {
     const taskDescription = newTask.value;
     let task = new Task(taskDescription, false, 0);
     handleStorage.setTask(task);
+    toDoTasks = handleStorage.getToDoList();
+    newTask.value = '';
+    toDoList(toDoTasks);
   }
 }
 
 const addToYourList = document.getElementById("add-to-your-list");
 
 addToYourList.addEventListener("click", addNewTask);
+
 newTask.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     addNewTask();

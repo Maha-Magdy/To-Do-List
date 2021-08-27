@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <main>
+        <header class="basic-p basic-border">
+            <h3 class="m-0 basic-font-weight">Today's To Do</h3>
+            <button id="reset-button" class="basic-button" type="reset">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                    id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 612 612" xml:space="preserve">
+                    <g>
+                        <g id="_x33__5_">
+                            <g>
+                                <path
+                                    d="M592.875,382.5h-191.25c-10.557,0-19.125,8.568-19.125,19.125s8.568,19.125,19.125,19.125h146.02     c-43.013,90.365-134.889,153-241.645,153c-134.851,0-246.101-99.794-264.709-229.5H2.639C21.497,495.146,149.978,612,306,612     c115.285,0,215.577-63.801,267.75-157.973v138.848c0,10.557,8.568,19.125,19.125,19.125S612,603.432,612,592.875v-191.25     C612,381.314,592.875,382.5,592.875,382.5z M19.125,229.5h191.25c10.557,0,19.125-8.568,19.125-19.125     s-8.568-19.125-19.125-19.125H64.241c42.974-90.423,134.984-153,241.759-153c134.851,0,246.101,99.794,264.709,229.5h38.651     C590.504,116.834,462.021,0,306,0C190.714,0,90.423,63.801,38.25,157.973V19.125C38.25,8.568,29.682,0,19.125,0S0,8.568,0,19.125     v191.25C0,228.907,19.125,229.5,19.125,229.5z"
+                                    fill="#6A6969" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </header>
+
+        <div class="add-item-container basic-p basic-border">
+            <input type="text" placeholder="Add to your list..." id="new-task">
+            <button class="basic-button" type="submit" id="add-to-your-list">
+                <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 512 512" width="25px">
+                    <g id="Solid">
+                        <path
+                            d="m400 24a24 24 0 0 0 -24 24v272a32 32 0 0 1 -32 32h-174.059l47.03-47.029a24 24 0 0 0 -33.942-33.942l-88 88a24 24 0 0 0 0 33.942l88 88a24 24 0 0 0 33.942-33.942l-47.03-47.029h174.059a80 80 0 0 0 80-80v-272a24 24 0 0 0 -24-24z"
+                            fill="#b6b6b6" />
+                    </g>
+                </svg>
+            </button>
+        </div>
+
+        <ul id="to-do-list" class="to-do-list"></ul>
+
+        <button class="basic-button clear-btn basic-p" type="button" id="clear-completed-tasks">Clear all completed</button>
+    </main>
+</body>
+
+</html>

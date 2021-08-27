@@ -1,0 +1,162 @@
+body {
+  background-color: #fafafa;
+  font-family: sans-serif;
+  margin: 0;
+  color: #6a6969;
+  font-weight: 500;
+  padding: 50px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b6b6b6;
+  border-radius: 10px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-style: italic;
+  color: #b6b6b6;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6a6969;
+}
+
+.basic-font-weight {
+  font-weight: 500;
+}
+
+main {
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 15px 0 rgb(154 161 171 / 50%);
+  width: 50%;
+}
+
+header,
+.add-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basic-button {
+  border: unset;
+  background: unset;
+  padding: unset;
+  cursor: pointer;
+}
+
+.basic-button:hover svg path {
+  fill: #6a6969 !important;
+}
+
+.basic-p {
+  padding: 20px 25px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.basic-border {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.add-item-container input,
+.to-do-list li input[type="text"] {
+  border: unset;
+  font-size: larger;
+  font-style: italic;
+  color: #6a6969;
+  width: 75% !important;
+}
+
+.to-do-list li input {
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+}
+
+.to-do-list li p {
+  margin: 0;
+  display: inline-block;
+}
+
+.to-do-list li input:checked + p {
+  text-decoration: line-through;
+}
+
+.add-item-container input:focus-visible,
+.to-do-list li input[type="text"]:focus-visible {
+  outline: unset;
+}
+
+::placeholder {
+  font-style: italic;
+  color: #b6b6b6;
+}
+
+.to-do-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.to-do-list li {
+  padding: 20px 25px;
+  border-bottom: 1px solid #d3d3d3;
+  position: relative;
+}
+
+.to-do-list li button {
+  position: absolute;
+  right: 25px;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: url("./dot.svg") no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.to-do-list li button.delete-button {
+  background: url("./trash.svg") no-repeat;
+  background-size: contain;
+}
+
+.to-do-list li button:hover {
+  background: url("./dark-dot.svg") no-repeat;
+  background-size: contain;
+}
+
+.to-do-list li button.delete-button:hover {
+  background: url("./dark-trash.svg") no-repeat;
+  background-size: contain;
+}
+
+.clear-btn {
+  width: 100%;
+  background-color: #fafafa;
+  color: #b6b6b6;
+  font-size: larger;
+}
+
+.clear-btn:hover {
+  background-color: #eee;
+}

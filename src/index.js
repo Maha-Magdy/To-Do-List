@@ -64,6 +64,8 @@ window.addEventListener('load', toDoList(toDoTasks));
 const resetButton = document.getElementById('reset-button');
 resetButton.addEventListener('click', () => {
   handleStorage.resetToDoList();
+  toDoTasks = handleStorage.getToDoList();
+  toDoList(toDoTasks);
 });
 
 const newTask = document.getElementById('new-task');

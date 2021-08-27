@@ -21,14 +21,7 @@ export default class HandleStorage {
 
   static updateToDoList(list) {
     localStorage.setItem("index", JSON.stringify(list.length - 1));
-
     list.map((task, index) => (task.index = index));
-
-    localStorage.setItem("to_do_list", JSON.stringify(list));
-  }
-
-  static clearAllCompletedTasks(list) {
-    localStorage.setItem("index", JSON.stringify(0));
     localStorage.setItem("to_do_list", JSON.stringify(list));
   }
 

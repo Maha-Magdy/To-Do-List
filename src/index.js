@@ -156,7 +156,8 @@ function updateOrDeleteTask(li, index, task) {
 const clearCompletedTasksBtn = document.getElementById("clear-completed-tasks");
 clearCompletedTasksBtn.addEventListener("click", () => {
   toDoTasks = handleStorage.getToDoList();
-  const unCompletedTasks = toDoTasks.filter((task) => (task.completed = false));
-  handleStorage.clearAllCompletedTasks(unCompletedTasks);
+  console.log("toDoTasks is", toDoTasks);
+  const unCompletedTasks = toDoTasks.filter((task) => (task.completed === false));
+  handleStorage.updateToDoList(unCompletedTasks);
   toDoList(unCompletedTasks);
 });

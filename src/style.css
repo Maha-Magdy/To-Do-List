@@ -1,12 +1,38 @@
 body {
   background-color: #fafafa;
   font-family: sans-serif;
-  position: relative;
-  min-width: 100vw;
-  min-height: 100vh;
   margin: 0;
   color: #6a6969;
   font-weight: 500;
+  padding: 50px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b6b6b6;
+  border-radius: 10px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-style: italic;
+  color: #b6b6b6;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6a6969;
 }
 
 .basic-font-weight {
@@ -14,10 +40,8 @@ body {
 }
 
 main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  margin: 0 auto;
   background-color: white;
   box-shadow: 0 0 15px 0 rgb(154 161 171 / 50%);
   width: 50%;
@@ -58,6 +82,7 @@ header,
   font-size: larger;
   font-style: italic;
   color: #6a6969;
+  width: 75%;
 }
 
 .to-do-list li input {
@@ -67,17 +92,20 @@ header,
   height: 15px;
 }
 
+.to-do-list li p {
+  margin: 0;
+  display: inline-block;
+}
+
+.to-do-list li input:checked + p {
+  text-decoration: line-through;
+}
+
 .add-item-container input:focus-visible {
   outline: unset;
 }
 
 ::placeholder {
-  font-style: italic;
-  color: #b6b6b6;
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   font-style: italic;
   color: #b6b6b6;
 }
@@ -108,11 +136,6 @@ header,
 .to-do-list li button:hover {
   background: url("./dark-dot.svg") no-repeat;
   background-size: contain;
-}
-
-.to-do-list li p {
-  margin: 0;
-  display: inline-block;
 }
 
 .clear-btn {

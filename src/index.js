@@ -1,19 +1,16 @@
 /* eslint-disable array-callback-return */
+/* eslint-disable import/no-named-default */
 import './style.css';
+import { default as Task, updateStatus } from './task.js';
+import handleStorage from './handle-storage.js';
 
-const toDoTasks = [
-  { description: 'wash the dishes', completed: false, index: 0 },
-  {
-    description: 'complete list structure milestone',
-    completed: false,
-    index: 1,
-  },
-];
+let toDoTasks = handleStorage.getToDoList();
 
 function toDoList(list) {
   list.sort((a, b) => (a.index > b.index ? 1 : -1));
 
   const listContainer = document.getElementById('to-do-list');
+  listContainer.innerHTML = '';
 
   list.map((task) => {
     const li = document.createElement('li');
@@ -23,6 +20,34 @@ function toDoList(list) {
 
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
+    if (task.completed) {
+      checkbox.checked = true;
+    } else {
+      checkbox.checked = false;
+    }
+
+    checkbox.addEventListener('change', (e) => {
+      let completed;
+      if (e.target.checked) {
+        completed = true;
+      } else {
+        completed = false;
+      }
+
+      const index = Array.prototype.indexOf.call(
+        listContainer.childNodes,
+        e.target.offsetParent,
+      );
+
+      const allTasks = handleStorage.getToDoList();
+      const selectedTask = allTasks[index];
+
+      const task = updateStatus(selectedTask, completed);
+
+      allTasks.splice(index, 1, task);
+
+      handleStorage.updateToDoList(allTasks);
+    });
 
     const btn = document.createElement('button');
 
@@ -35,3 +60,31 @@ function toDoList(list) {
 }
 
 window.addEventListener('load', toDoList(toDoTasks));
+
+const resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', () => {
+  handleStorage.resetToDoList();
+});
+
+const newTask = document.getElementById('new-task');
+
+function addNewTask() {
+  if (newTask.value) {
+    const taskDescription = newTask.value;
+    const task = new Task(taskDescription, false, 0);
+    handleStorage.setTask(task);
+    toDoTasks = handleStorage.getToDoList();
+    newTask.value = '';
+    toDoList(toDoTasks);
+  }
+}
+
+const addToYourList = document.getElementById('add-to-your-list');
+
+addToYourList.addEventListener('click', addNewTask);
+
+newTask.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    addNewTask();
+  }
+});

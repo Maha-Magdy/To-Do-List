@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 export default class HandleStorage {
   static setTask(task) {
     const toDoList = HandleStorage.getToDoList();
@@ -20,6 +21,10 @@ export default class HandleStorage {
   }
 
   static updateToDoList(list) {
+    localStorage.setItem('index', JSON.stringify(list.length - 1));
+    list.map((task, index) => {
+      task.index = index;
+    });
     localStorage.setItem('to_do_list', JSON.stringify(list));
   }
 

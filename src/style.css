@@ -149,6 +149,7 @@ header,
   background: url("./dark-trash.svg") no-repeat;
   background-size: contain;
 }
+
 .clear-btn {
   width: 100%;
   background-color: #fafafa;

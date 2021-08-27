@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 import "./style.css";
-import Task from "./task";
+import { default as Task, updateStatus } from "./task";
 import handleStorage from "./handle-storage";
 
 // let toDoTasks = [
@@ -28,6 +28,34 @@ function toDoList(list) {
 
     const checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
+    if (task.completed) {
+      checkbox.checked = true;
+    } else {
+      checkbox.checked = false;
+    }
+    
+    checkbox.addEventListener("change", function (e) {
+      let completed;
+      if (e.target.checked) {
+        completed = true;
+      } else {
+        completed = false;
+      }
+
+      const index = Array.prototype.indexOf.call(
+        listContainer.childNodes,
+        e.target.offsetParent
+      );
+
+      let all_tasks = handleStorage.getToDoList();
+      const selectedTask = all_tasks[index];
+
+      const task = updateStatus(selectedTask, completed);
+
+      all_tasks.splice(index, 1, task);
+
+      handleStorage.updateToDoList(all_tasks);
+    });
 
     const btn = document.createElement("button");
 
@@ -54,7 +82,7 @@ function addNewTask() {
     let task = new Task(taskDescription, false, 0);
     handleStorage.setTask(task);
     toDoTasks = handleStorage.getToDoList();
-    newTask.value = '';
+    newTask.value = "";
     toDoList(toDoTasks);
   }
 }

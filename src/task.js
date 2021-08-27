@@ -5,3 +5,13 @@ export default class Task {
     this.index = index;
   }
 }
+
+export function updateStatus(task, completed) {
+  if (completed) {
+    task.completed = true;
+  } else {
+    task.completed = false;
+  }
+
+  return task;
+}

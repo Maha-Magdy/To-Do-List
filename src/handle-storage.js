@@ -19,6 +19,10 @@ export default class HandleStorage {
     return to_do_list;
   }
 
+  static updateToDoList(list) {
+    localStorage.setItem('to_do_list', JSON.stringify(list));
+  }
+
   static getIndex() {
     let index;
 

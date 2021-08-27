@@ -23,7 +23,9 @@ A "To-do list" is a tool that helps to organize your day. It simply lists the th
 
 - Clone this repo run this code on a terminal window: 
 
-      ```git clone https://github.com/Maha-Magdy/To-Do-List.git```
+      ```
+      git clone https://github.com/Maha-Magdy/To-Do-List.git
+      ```
 
 - Install needed webpack packages
 

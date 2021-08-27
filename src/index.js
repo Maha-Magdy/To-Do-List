@@ -106,6 +106,7 @@ function updateOrDeleteTask(li, index, task) {
   li.removeChild(li.lastElementChild);
   li.removeChild(li.lastElementChild);
 
+  // handling update functionality
   let input = document.createElement("input");
   input.setAttribute("type", "text");
   input.value = task.description;
@@ -125,8 +126,37 @@ function updateOrDeleteTask(li, index, task) {
 
     handleStorage.updateToDoList(allTasks);
 
-    toDoList(list);
+    toDoList(allTasks);
   });
 
   li.appendChild(input);
+
+  // handling delete functionality
+  let deleteBtn = document.createElement("button");
+  deleteBtn.setAttribute("class", "delete-button");
+  deleteBtn.addEventListener("click", (e) => {
+    const index = Array.prototype.indexOf.call(
+      listContainer.childNodes,
+      e.target.offsetParent
+    );
+
+    let allTasks = handleStorage.getToDoList();
+    const selectedTask = allTasks[index];
+
+    allTasks.splice(index, 1);
+
+    handleStorage.updateToDoList(allTasks);
+
+    toDoList(allTasks);
+  });
+
+  li.appendChild(deleteBtn);
 }
+
+const clearCompletedTasksBtn = document.getElementById("clear-completed-tasks");
+clearCompletedTasksBtn.addEventListener("click", () => {
+  toDoTasks = handleStorage.getToDoList();
+  const unCompletedTasks = toDoTasks.filter((task) => (task.completed = false));
+  handleStorage.clearAllCompletedTasks(unCompletedTasks);
+  toDoList(unCompletedTasks);
+});

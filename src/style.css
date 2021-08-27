@@ -135,11 +135,20 @@ header,
   cursor: pointer;
 }
 
+.to-do-list li button.delete-button {
+  background: url("./trash.svg") no-repeat;
+  background-size: contain;
+}
+
 .to-do-list li button:hover {
   background: url("./dark-dot.svg") no-repeat;
   background-size: contain;
 }
 
+.to-do-list li button.delete-button:hover {
+  background: url("./dark-trash.svg") no-repeat;
+  background-size: contain;
+}
 .clear-btn {
   width: 100%;
   background-color: #fafafa;

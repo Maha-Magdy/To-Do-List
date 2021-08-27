@@ -15,3 +15,8 @@ export function updateStatus(task, completed) {
 
   return task;
 }
+
+export function updateDescription(task, newDesc) {
+  task.description = newDesc;
+  return task;
+}

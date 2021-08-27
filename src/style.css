@@ -24,6 +24,12 @@ body {
   border-radius: 10px;
 }
 
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-style: italic;
+  color: #b6b6b6;
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #6a6969;
@@ -86,6 +92,11 @@ header,
   height: 15px;
 }
 
+.to-do-list li p {
+  margin: 0;
+  display: inline-block;
+}
+
 .to-do-list li input:checked + p {
   text-decoration: line-through;
 }
@@ -95,12 +106,6 @@ header,
 }
 
 ::placeholder {
-  font-style: italic;
-  color: #b6b6b6;
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   font-style: italic;
   color: #b6b6b6;
 }
@@ -131,11 +136,6 @@ header,
 .to-do-list li button:hover {
   background: url("./dark-dot.svg") no-repeat;
   background-size: contain;
-}
-
-.to-do-list li p {
-  margin: 0;
-  display: inline-block;
 }
 
 .clear-btn {

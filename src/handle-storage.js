@@ -1,22 +1,22 @@
 export default class HandleStorage {
   static setTask(task) {
-    let to_do_list = HandleStorage.getToDoList();
-    let index = HandleStorage.getIndex();
+    const toDoList = HandleStorage.getToDoList();
+    const index = HandleStorage.getIndex();
     task.index = index;
-    to_do_list.push(task);
-    localStorage.setItem('to_do_list', JSON.stringify(to_do_list));
+    toDoList.push(task);
+    localStorage.setItem('to_do_list', JSON.stringify(toDoList));
   }
 
   static getToDoList() {
-    let to_do_list;
+    let toDoList;
 
     if (!localStorage.getItem('to_do_list')) {
-      to_do_list = [];
+      toDoList = [];
     } else {
-      to_do_list = JSON.parse(localStorage.getItem('to_do_list'));
+      toDoList = JSON.parse(localStorage.getItem('to_do_list'));
     }
 
-    return to_do_list;
+    return toDoList;
   }
 
   static updateToDoList(list) {
@@ -26,12 +26,12 @@ export default class HandleStorage {
   static getIndex() {
     let index;
 
-    if (!localStorage.getItem("index")) {
+    if (!localStorage.getItem('index')) {
       index = 0;
-      localStorage.setItem("index", JSON.stringify(index));
+      localStorage.setItem('index', JSON.stringify(index));
     } else {
-      index = JSON.parse(localStorage.getItem("index")) + 1;
-      localStorage.setItem("index", JSON.stringify(index));
+      index = JSON.parse(localStorage.getItem('index')) + 1;
+      localStorage.setItem('index', JSON.stringify(index));
     }
 
     return index;

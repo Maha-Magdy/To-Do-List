@@ -11,6 +11,11 @@ A "To-do list" is a tool that helps to organize your day. It simply lists the th
 - style-loader, css-loader
 - webpack-dev-server
 
+
+## Live Demo
+
+[Live Demo Link]( https://maha-magdy.github.io/To-Do-List/ )
+
 ## Getting Started
 
 **To get a local copy up and running follow these simple steps.**

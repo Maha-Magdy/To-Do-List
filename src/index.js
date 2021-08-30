@@ -8,6 +8,18 @@ import handleStorage from './handle-storage.js';
 let toDoTasks = handleStorage.getToDoList();
 const listContainer = document.getElementById('to-do-list');
 
+function getSelectedTask(e) {
+  const index = Array.prototype.indexOf.call(
+    listContainer.childNodes,
+    e.target.offsetParent,
+  );
+
+  const allTasks = handleStorage.getToDoList();
+  const selectedTask = allTasks[index];
+
+  return [index, selectedTask, allTasks];
+}
+
 function toDoList(list) {
   list.sort((a, b) => (a.index > b.index ? 1 : -1));
 
@@ -41,7 +53,7 @@ function toDoList(list) {
       );
 
       const allTasks = handleStorage.getToDoList();
-      const selectedTask = allTasks[index];
+      const selectedTask = getSelectedTask(e)[1];
 
       const task = updateStatus(selectedTask, completed);
 
@@ -52,13 +64,8 @@ function toDoList(list) {
 
     const btn = document.createElement('button');
     btn.addEventListener('click', (e) => {
-      const index = Array.prototype.indexOf.call(
-        listContainer.childNodes,
-        e.target.offsetParent,
-      );
-
-      const allTasks = handleStorage.getToDoList();
-      const selectedTask = allTasks[index];
+      const index = getSelectedTask(e)[0];
+      const selectedTask = getSelectedTask(e)[1];
 
       updateOrDeleteTask(e.target.offsetParent, index, selectedTask);
     });
@@ -113,15 +120,9 @@ function updateOrDeleteTask(li, index, task) {
   input.value = task.description;
 
   input.addEventListener('change', (e) => {
-    const index = Array.prototype.indexOf.call(
-      listContainer.childNodes,
-      e.target.offsetParent,
-    );
-
-    const allTasks = handleStorage.getToDoList();
-    const selectedTask = allTasks[index];
-
+    const selectedTask = getSelectedTask(e)[1];
     const task = updateDescription(selectedTask, e.target.value);
+    const allTasks = getSelectedTask(e)[2];
 
     allTasks.splice(index, 1, task);
 
@@ -156,7 +157,7 @@ function updateOrDeleteTask(li, index, task) {
 const clearCompletedTasksBtn = document.getElementById('clear-completed-tasks');
 clearCompletedTasksBtn.addEventListener('click', () => {
   toDoTasks = handleStorage.getToDoList();
-  const unCompletedTasks = toDoTasks.filter((task) => (task.completed === false));
+  const unCompletedTasks = toDoTasks.filter((task) => task.completed === false);
   handleStorage.updateToDoList(unCompletedTasks);
   toDoList(unCompletedTasks);
 });

@@ -122,6 +122,12 @@ header,
   padding: 20px 25px;
   border-bottom: 1px solid #d3d3d3;
   position: relative;
+  cursor: move;
+}
+
+.to-do-list li.dragging {
+  border: 1px solid #959595;
+  box-shadow: 0 0 15px 0 rgb(154 161 171 / 25%);
 }
 
 .to-do-list li button {

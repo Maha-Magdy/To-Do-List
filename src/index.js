@@ -7,6 +7,7 @@ import handleStorage from "./handle-storage.js";
 
 let toDoTasks = handleStorage.getToDoList();
 const listContainer = document.getElementById("to-do-list");
+let draggable = document.querySelectorAll(".to-do-list li");
 
 function getSelectedTask(e) {
   const index = Array.prototype.indexOf.call(
@@ -78,6 +79,8 @@ function toDoList(list) {
 
     listContainer.appendChild(li);
   });
+
+  makeDraggableItems();
 }
 
 window.addEventListener("load", toDoList(toDoTasks));
@@ -165,22 +168,23 @@ clearCompletedTasksBtn.addEventListener("click", () => {
 });
 
 // Add the drag and drop functionality
-const draggable = document.querySelectorAll(".to-do-list li");
+function makeDraggableItems() {
+  draggable = document.querySelectorAll(".to-do-list li");
+  draggable.forEach((draggedItem) => {
+    draggedItem.addEventListener("dragstart", () => {
+      console.log("Hii", draggable);
+      draggedItem.classList.add("dragging");
+    });
 
-draggable.forEach((draggedItem) => {
-  draggedItem.addEventListener("dragstart", () => {
-    draggedItem.classList.add("dragging");
+    draggedItem.addEventListener("dragend", () => {
+      draggedItem.classList.remove("dragging");
+    });
   });
-
-  draggedItem.addEventListener("dragend", () => {
-    draggedItem.classList.remove("dragging");
-  });
-});
+}
 
 listContainer.addEventListener("dragover", (e) => {
   e.preventDefault;
   const afterElement = getDragAfterElement(e.clientY);
-  console.log(afterElement);
   let draggable = document.querySelector(".dragging");
   if (afterElement == null) {
     listContainer.appendChild(draggable);
@@ -198,10 +202,10 @@ function getDragAfterElement(y_position) {
     (closest, child) => {
       const box = child.getBoundingClientRect();
       const offset = y_position - box.y - box.height / 2;
-      if(offset < 0 && offset > closest.offset) {
-        return {offset: offset, element: child}
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
       } else {
-        return closest
+        return closest;
       }
     },
     { offset: Number.NEGATIVE_INFINITY }
